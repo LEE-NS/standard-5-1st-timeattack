@@ -12,16 +12,11 @@ export default function TodoList({ sectionName, tasks, setTasks }) {
     <div>
       <h2>{sectionName}</h2>
       <ul style={listStyle}>
-        <li style={listStyle}>
-          {(sectionName === "working" ? working : done).map((task) => (
-            <TodoItem
-              key={task.id}
-              task={task}
-              tasks={tasks}
-              setTasks={setTasks}
-            />
-          ))}
-        </li>
+        {(sectionName === "working" ? working : done).map((task) => (
+          <li key={task.id}>
+            <TodoItem task={task} tasks={tasks} setTasks={setTasks} />
+          </li>
+        ))}
       </ul>
     </div>
   )
